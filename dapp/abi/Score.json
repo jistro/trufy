@@ -1,0 +1,94 @@
+{
+  "abi": [
+    {
+      "type": "function",
+      "name": "getClass",
+      "inputs": [
+        { "name": "_wallet", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [{ "name": "", "type": "bytes1", "internalType": "bytes1" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getMetadata",
+      "inputs": [
+        { "name": "_wallet", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "tuple",
+          "internalType": "struct Score.Metadata",
+          "components": [
+            {
+              "name": "isAEnterprise",
+              "type": "bytes1",
+              "internalType": "bytes1"
+            },
+            { "name": "class", "type": "bytes1", "internalType": "bytes1" },
+            { "name": "role", "type": "string", "internalType": "string" },
+            {
+              "name": "hashCredencial",
+              "type": "bytes32",
+              "internalType": "bytes32"
+            },
+            {
+              "name": "talentScore",
+              "type": "uint256",
+              "internalType": "uint256"
+            }
+          ]
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getRole",
+      "inputs": [
+        { "name": "_wallet", "type": "address", "internalType": "address" }
+      ],
+      "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "lockData",
+      "inputs": [
+        { "name": "_wallet", "type": "address", "internalType": "address" },
+        {
+          "name": "_isAEnterprise",
+          "type": "bytes1",
+          "internalType": "bytes1"
+        },
+        { "name": "_role", "type": "string", "internalType": "string" },
+        {
+          "name": "_hashCredencial",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        { "name": "_talentScore", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "wallet",
+      "inputs": [{ "name": "", "type": "address", "internalType": "address" }],
+      "outputs": [
+        { "name": "isAEnterprise", "type": "bytes1", "internalType": "bytes1" },
+        { "name": "class", "type": "bytes1", "internalType": "bytes1" },
+        { "name": "role", "type": "string", "internalType": "string" },
+        {
+          "name": "hashCredencial",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        { "name": "talentScore", "type": "uint256", "internalType": "uint256" }
+      ],
+      "stateMutability": "view"
+    }
+  ]
+}
