@@ -3,8 +3,19 @@
   background-image: url("../../public/background.jpg");
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.header img {
+  width: 9vw;
+}
+
 .main {
-  min-height: 100vh;
+  min-height: 81.5vh;
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -116,16 +127,14 @@
   display: flex;
   flex: 1;
   padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
+  color: #ffffffb0;
   justify-content: center;
   align-items: center;
 }
 
 .footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+  color: #fcd00d;
+  text-decoration: none;
 }
 
 .title a {
