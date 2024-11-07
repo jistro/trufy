@@ -241,8 +241,7 @@ export const ReadData: React.FC<ReadDataProps> = ({
   async function callgpt(prompt = "You are a helpful assistant.") {
     try {
       const openai = new OpenAI({
-        apiKey: //USING NEXT_PUBLIC_TALENT_OPEN_API
-          process.env.NEXT_PUBLIC_TALENT_OPEN_API || "",
+        apiKey: process.env.NEXT_PUBLIC_TALENT_OPEN_API || "",
         dangerouslyAllowBrowser: true,
       });
 
