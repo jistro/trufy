@@ -1,9 +1,32 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import type { NextPage } from "next";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import { useState } from "react";
+import { ReadData } from "../components/readData";
+import { config } from "../wagmi";
+
+
+interface HashResult {
+  hash: string;
+  fileName: string;
+  fileSize: number;
+  timestamp: string;
+}
+
+
 
 const Home: NextPage = () => {
+  const [profileData, setProfileData] = useState<any | null>(null);
+  const [hashPdf, setHashPdf] = useState<string | null>(null);
+  const [role, setRole] = useState<string>("0x01");
+
+  const [hashResult, setHashResult] = useState<HashResult | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  //0x008aD87EC78FDf57Fa3E84649cc7242eCDbDb8FE
+  
+
   return (
     <div className={styles.container}>
       <Head>
@@ -18,58 +41,30 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <ConnectButton />
 
-        <h1 className={styles.title}>
-          Welcome to <a href="">RainbowKit</a> + <a href="">wagmi</a> +{' '}
-          <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <ReadData
+          setProfileData={setProfileData}
+          profileData={profileData}
+          setRole={setRole}
+          role={role}
+          setHashPdf={setHashPdf}
+          hashPdf={hashPdf}
+          setHashResult={setHashResult}
+          hashResult={hashResult}
+          setIsLoading={setIsLoading}
+          isLoading={isLoading}
+        />
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a className={styles.card} href="https://rainbowkit.com">
-            <h2>RainbowKit Documentation &rarr;</h2>
-            <p>Learn how to customize your wallet connection flow.</p>
-          </a>
-
-          <a className={styles.card} href="https://wagmi.sh">
-            <h2>wagmi Documentation &rarr;</h2>
-            <p>Learn how to interact with Ethereum.</p>
-          </a>
-
-          <a
-            className={styles.card}
-            href="https://github.com/rainbow-me/rainbowkit/tree/main/examples"
-          >
-            <h2>RainbowKit Examples &rarr;</h2>
-            <p>Discover boilerplate example RainbowKit projects.</p>
-          </a>
-
-          <a className={styles.card} href="https://nextjs.org/docs">
-            <h2>Next.js Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a
-            className={styles.card}
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-          >
-            <h2>Next.js Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            className={styles.card}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        {/*profileData && (
+          <div>
+            <h2>Profile Data</h2>
+            <p>Username: {profileData.userName}</p>
+            <p>Profile Picture: {profileData.profilePictureUrl}</p>
+            <p>Identity Score: {profileData.identityScore}</p>
+            <p>Skills Score: {profileData.skillsScore}</p>
+            <p>Activity Score: {profileData.activityScore}</p>
+            <p>Main Wallet: {profileData.mainWallet}</p>
+          </div>
+        )*/}
       </main>
 
       <footer className={styles.footer}>
