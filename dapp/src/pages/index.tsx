@@ -4,8 +4,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import { ReadData } from "../components/readData";
-import { config } from "../wagmi";
-
+import { Avatar, Box, Card, Flex, Table, Text } from "@radix-ui/themes";
 
 interface HashResult {
   hash: string;
@@ -14,18 +13,13 @@ interface HashResult {
   timestamp: string;
 }
 
-
-
 const Home: NextPage = () => {
   const [profileData, setProfileData] = useState<any | null>(null);
   const [hashPdf, setHashPdf] = useState<string | null>(null);
   const [role, setRole] = useState<string>("0x01");
-
-  const [hashResult, setHashResult] = useState<HashResult | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [rankOfUser, setRankOfUser] = useState<string | null>(null);
 
   //0x008aD87EC78FDf57Fa3E84649cc7242eCDbDb8FE
-  
 
   return (
     <div className={styles.container}>
@@ -38,21 +32,145 @@ const Home: NextPage = () => {
         <link href="/favicon.ico" rel="icon" />
       </Head>
 
-      <main className={styles.main}>
+      <header>
         <ConnectButton />
+      </header>
 
-        <ReadData
-          setProfileData={setProfileData}
-          profileData={profileData}
-          setRole={setRole}
-          role={role}
-          setHashPdf={setHashPdf}
-          hashPdf={hashPdf}
-          setHashResult={setHashResult}
-          hashResult={hashResult}
-          setIsLoading={setIsLoading}
-          isLoading={isLoading}
-        />
+      <main className={styles.main}>
+        {rankOfUser ? (
+          <>
+            <Card>
+              <Flex gap="2" align="center">
+                <Avatar
+                  size="5"
+                  src={profileData ? profileData.profilePictureUrl : "user.png"}
+                  radius="full"
+                  fallback="T"
+                />
+                <Box>
+                  <Text as="div" size="4" weight="bold">
+                    {profileData.userName}
+                  </Text>
+                  <Text as="div" size="4" color="gray">
+                    {role === "0x01"
+                      ? "Developer"
+                      : role === "0x02"
+                      ? "Designer"
+                      : role === "0x03"
+                      ? "Community Manager"
+                      : "Marketing"}{" "}
+                    rank {rankOfUser}
+                  </Text>
+                </Box>
+              </Flex>
+            </Card>
+            <h2
+              style={{
+                marginTop: "20px",
+                color: "white",
+                fontSize: "1rem",
+              }}
+            > 
+              With this rank you can multiply your voting power for example:
+            </h2>
+            <Table.Root variant="surface">
+              <Table.Header>
+                <Table.Row>
+                  <Table.ColumnHeaderCell>DAO</Table.ColumnHeaderCell>
+                  <Table.ColumnHeaderCell>
+                    Quadratic Voting Multiplier
+                  </Table.ColumnHeaderCell>
+                </Table.Row>
+              </Table.Header>
+
+              <Table.Body>
+                <Table.Row>
+                  <Table.RowHeaderCell>
+                    <img
+                      src="/op.png"
+                      alt="rainbow"
+                      style={{ width: "80px" }}
+                    />
+                  </Table.RowHeaderCell>
+                  <Table.Cell>
+                    <b
+                      style={{
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {role === "0x01"
+                        ? 1.5
+                        : role === "0x02"
+                        ? 1.2
+                        : role === "0x03"
+                        ? 1.1
+                        : 1.0}
+                    </b>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.RowHeaderCell>
+                    <img
+                      src="/celo.png"
+                      alt="rainbow"
+                      style={{ width: "80px" }}
+                    />
+                  </Table.RowHeaderCell>
+                  <Table.Cell>
+                    <b
+                      style={{
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {role === "0x01"
+                        ? 3.23
+                        : role === "0x02"
+                        ? 2.1
+                        : role === "0x03"
+                        ? 1.5
+                        : 1.0}
+                    </b>
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.RowHeaderCell>
+                    <img
+                      src="/gitcoin.png"
+                      alt="rainbow"
+                      style={{ width: "80px" }}
+                    />
+                  </Table.RowHeaderCell>
+                  <Table.Cell>
+                    <b
+                      style={{
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {role === "0x01"
+                        ? 1.2
+                        : role === "0x02"
+                        ? 1.1
+                        : role === "0x03"
+                        ? 1.05
+                        : 1.0}
+                    </b>
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table.Root>
+          </>
+        ) : (
+          <ReadData
+            setProfileData={setProfileData}
+            profileData={profileData}
+            setRole={setRole}
+            role={role}
+            setHashPdf={setHashPdf}
+            hashPdf={hashPdf}
+            rankOfUser={rankOfUser}
+            setRankOfUser={setRankOfUser}
+          />
+        )}
 
         {/*profileData && (
           <div>
