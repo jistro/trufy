@@ -1,15 +1,73 @@
-Las Organizaciones Autónomas Descentralizadas (DAOs) enfrentan un desafío crítico en su gobernanza: los ataques Sybil. En estos ataques, actores malintencionados crean múltiples identidades falsas para manipular votaciones y propuestas, un riesgo que se intensifica cuando las decisiones requieren conocimiento especializado y los votantes carecen de experiencia en el área temática. Esta vulnerabilidad puede resultar en decisiones desinformadas, pérdida de recursos y potencial explotación de la DAO.
+# Trufy: Expertise-Based Governance for DAOs
 
-Para abordar esta problemática, Trufy ha desarrollado un innovador sistema de credenciales por área que asegura que la gobernanza esté fundamentada en expertise verificable. La solución se construye sobre tres pilares fundamentales que trabajan en conjunto para crear un ecosistema robusto y confiable.
+## Overview
 
-El primer pilar consiste en la integración comprehensiva de credenciales y métricas de expertise. El sistema agrega datos de protocolos reputados como Gitcoin Passport y Talent Passport, complementándolos con métricas objetivas que incluyen contribuciones en GitHub, experiencia laboral verificada y certificaciones profesionales. Este enfoque multidisciplinario permite evaluar competencias específicas en diversas áreas, desde desarrollo de software hasta marketing y finanzas.
+Decentralized Autonomous Organizations (DAOs) face a critical challenge in their governance: Sybil attacks. In these attacks, malicious actors create multiple fake identities to manipulate votes and proposals, a risk that intensifies when decisions require specialized knowledge and voters lack experience in the subject area. This vulnerability can result in uninformed decisions, loss of resources, and potential exploitation of the DAO.
 
-El segundo componente es un sistema de calificación transparente que utiliza escalas flexibles para cuantificar el nivel de conocimiento. Las puntuaciones pueden expresarse numéricamente (0-100) o mediante letras (S, A, B, C), permitiendo una granularidad precisa en la evaluación de expertise. Por ejemplo, un desarrollador con calificación "S" en ciencias computacionales tendría naturalmente mayor peso en decisiones técnicas que alguien con calificación "C".
+## Solution
 
-El tercer elemento crucial es la implementación de un sistema de voto cuadrático ponderado por expertise. Este mecanismo ajusta dinámicamente el valor del voto según la relevancia de las credenciales del votante para cada propuesta específica. En una decisión técnica, por ejemplo, un experto en blockchain podría recibir un multiplicador x4, mientras que un profesional de marketing mantendría un multiplicador base x1. Este diseño no solo protege contra ataques Sybil al vincular el poder de voto a credenciales verificables, sino que también asegura que las decisiones reflejen el conocimiento colectivo más relevante.
+Trufy has developed an innovative area-based credential system that ensures governance is grounded in verifiable expertise. The solution is built on three fundamental pillars that work together to create a robust and reliable ecosystem.
 
-El sistema también incorpora mecanismos de participación inclusiva y flexible. Los protocolos, empresas y equipos pueden obtener calificaciones grupales para participar en decisiones, mientras cada DAO mantiene la autonomía para definir sus propias reglas, incluyendo multiplicadores mínimos por área y requisitos específicos para propuestas.
+### 1. Comprehensive Credential Integration
 
-El impacto de Trufy se materializa en múltiples dimensiones: facilita decisiones más informadas al priorizar la opinión de expertos verificados, reduce significativamente los riesgos de manipulación y ataques, y promueve una gobernanza equitativa que balancea meritocracia técnica con inclusividad. 
+The system aggregates data from reputable protocols such as Gitcoin Passport and Talent Passport, complementing them with objective metrics including:
 
-Trufy no solo fortalece la seguridad de las DAOs, sino que también promueve una cultura de transparencia y responsabilidad, donde el conocimiento validado se convierte en la base de la gobernanza descentralizada.
+* GitHub contributions
+* Verified work experience
+* Professional certifications
+
+This multidisciplinary approach allows for the evaluation of specific competencies across various areas, from software development to marketing and finance.
+
+### 2. Transparent Rating System
+
+Our rating system uses flexible scales to quantify knowledge levels:
+
+* Numerical scores (0-100)
+* Letter grades (S, A, B, C)
+
+This allows for precise granularity in expertise evaluation. For example, a developer with an "S" rating in computer science would naturally carry more weight in technical decisions than someone with a "C" rating.
+
+### 3. Flexible Implementation for DAOs
+
+Each DAO has the autonomy to decide how to implement and apply expertise metrics in their governance. While we recommend quadratic voting for optimal results, DAOs can customize their approach based on their specific needs:
+
+* Choose their own voting mechanisms
+* Set custom weight multipliers
+* Define specialized requirements for different proposal types
+* Implement varied voting thresholds
+
+Our recommended approach using quadratic voting allows for:
+* Dynamic vote value adjustment based on expertise
+* Fair balance between influence and participation
+* Protection against voting power concentration
+* Enhanced collective decision-making
+
+## Features
+
+### Inclusive Participation
+
+* Group ratings for protocols, companies, and teams
+* Customizable DAO rules
+* Flexible minimum multipliers per area
+* Specific proposal requirements
+
+### Security & Transparency
+
+* Verifiable credential system
+* Protection against identity manipulation
+* Clear expertise evaluation metrics
+* Transparent voting weight calculation
+
+## Impact
+
+Trufy delivers multiple benefits:
+
+* More informed decision-making through verified expert opinions
+* Reduced risk of manipulation and attacks
+* Equitable governance balancing technical meritocracy with inclusivity
+* Enhanced DAO security
+* Promotion of transparency and accountability
+
+## Vision
+
+Trufy aims to revolutionize DAO governance by establishing a system where validated knowledge becomes the foundation of decentralized decision-making, creating more secure and effective autonomous organizations.
